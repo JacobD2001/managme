@@ -1,20 +1,30 @@
 <template>
-  <ul>
-    <li v-for="project in projects" :key="project.id">
-      {{ project.name }} - {{ project.description }}
-      <button @click="deleteProject(project.id)">Delete</button>
-    </li>
-  </ul>
+  <div>
+    <h2>{{ selectedProject ? "Edit Project" : "Add Project" }}</h2>
+    <ProjectForm @update="fetchProjects" :editProject="selectedProject" />
+    <ul>
+      <li v-for="project in projects" :key="project.id">
+        {{ project.name }} - {{ project.description }}
+        <button @click="deleteProject(project.id)">Delete</button>
+        <button @click="selectProjectForEditing(project)">Edit</button>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue';
+import ProjectForm from './ProjectForm.vue';
 import { projectService } from '../services/projects-services/ProjectService';
 import { Project } from '../models/project-models/Project';
 
 export default defineComponent({
+  components: {
+    ProjectForm
+  },
   setup() {
     const projects = ref<Project[]>([]);
+    const selectedProject = ref<Project | null>(null);
 
     const fetchProjects = () => {
       projects.value = projectService.getProjects();
@@ -22,12 +32,21 @@ export default defineComponent({
 
     const deleteProject = (id: string) => {
       projectService.deleteProject(id);
-      fetchProjects(); // Refresh the list after deletion
+      fetchProjects(); // Refresh the list
     };
 
-    onMounted(fetchProjects); // Load projects when component mounts
+    const selectProjectForEditing = (project: Project) => {
+      selectedProject.value = project; // Set the project for editing
+    };
 
-    return { projects, deleteProject };
+    // Reset form to "add new" mode after updating or adding a project
+    const resetForm = () => {
+      selectedProject.value = null;
+    };
+
+    onMounted(fetchProjects);
+
+    return { projects, deleteProject, selectProjectForEditing, selectedProject, fetchProjects, resetForm };
   }
 });
 </script>

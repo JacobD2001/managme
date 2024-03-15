@@ -1,3 +1,4 @@
+to do: edit into 1 form 
 <template>
   <div>
     <form @submit.prevent="submitForm">
@@ -15,18 +16,29 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue';
-import { projectService } from '../services/projects-services/ProjectService';
+import { defineComponent, PropType, ref, watch } from 'vue';
 import { Project } from '../models/project-models/Project';
+import { projectService } from '../services/projects-services/ProjectService';
 
 export default defineComponent({
-  setup() {
-    const project = ref<Project>({ id: Date.now().toString(), name: '', description: '' });
+  props: {
+    // Prop to receive a project for editing
+    editProject: Object as PropType<Project>
+  },
+  setup(props, { emit }) {
+    const project = ref<Project>({ id: '', name: '', description: '' });
+
+    // Watch for changes on editProject prop
+    watch(() => props.editProject, (newVal) => {
+      if (newVal) {
+        project.value = { ...newVal };
+      }
+    }, { immediate: true });
 
     const submitForm = () => {
       projectService.saveProject(project.value);
+      emit('update'); // Emit an event to notify parent of update
       project.value = { id: Date.now().toString(), name: '', description: '' }; // Reset form
-      // to do : add validation and error handling
     };
 
     return { project, submitForm };
