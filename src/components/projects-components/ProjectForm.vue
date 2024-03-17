@@ -1,4 +1,3 @@
-to do: edit into 1 form 
 <template>
   <div>
     <form @submit.prevent="submitForm">
