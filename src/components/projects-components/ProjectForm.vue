@@ -16,7 +16,7 @@
 
 <script lang="ts">
 import { defineComponent, PropType, ref, watch } from 'vue';
-import { Project } from '../models/project-models/Project';
+import { Project } from '../models/projects-models/project';
 import { projectService } from '../services/projects-services/ProjectService';
 
 export default defineComponent({

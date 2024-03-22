@@ -1,4 +1,5 @@
-import { Project } from '../../models/projects-models/Project';
+import { Project } from '../../models/projects-models/project';
+//import { Project } from '/VSC Projects/managme/src/components/models/projects-models/project.ts';
 
 export class ProjectService {
   private projectsKey: string = 'projects';

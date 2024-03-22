@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>{{ selectedProject ? "Edit Project" : "Add Project" }}</h2>
-    <ProjectForm @update="fetchProjects" :editProject="selectedProject" />
+    <ProjectForm @update="fetchProjects" : editProject="selectedProject" />
     <ul>
       <li v-for="project in projects" :key="project.id">
         {{ project.name }} - {{ project.description }}
@@ -16,7 +16,7 @@
 import { defineComponent, onMounted, ref } from 'vue';
 import ProjectForm from './ProjectForm.vue';
 import { projectService } from '../services/projects-services/ProjectService';
-import { Project } from '../models/project-models/Project';
+import { Project } from '../models/projects-models/project';
 
 export default defineComponent({
   components: {
