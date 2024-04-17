@@ -25,3 +25,46 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## My notes
+
+---Użytkownicy---
+1. Panel logowania użytkowników - dane wysyłane do api -> 
+2. api(1. endpoint) pobiera login i hasło weryfikuje i zwraca token JWT i refreshtoken lub błąd
+3. api(2. endpoint) odświeżanie tokena JWT
+Model użytkownika: id, imię, nazwisko, rola(admin,devops,developer)
+PYTANIA: 
+1. Gdzie przechowywane są dane użytkowników żeby ich logowało itd?
+
+---Projekty(największa jednostka)---
+1. Crud projektu(utwórz nowy, edytuj, usuń, zapisz)
+Model projektu: id, nazwa, opis, status(czekający na wyknoanie, aktualnie wykonywany, zamknięty)
+
+---Historyjki(przypisane do projektu)---
+1. Crud historyjek(utwórz nową, edytuj, usuń, zapisz)
+2. Widok historyjek podzielony na: aktualnie wykonywane, czekające na wykonanie i zamknięte
+Model historyjki: id, nazwa, opis, priorytet (niski/średni/wysoki), projekt, data utworzenia, stan (todo/doing/done), właściciel (id użytkownika)
+
+---Zadania(przypisane do historyjek - najmniejsza jednostka w aplikacji)---
+1. Crud zadań(utwórz nową, edytuj, usuń, zapisz)
+2. Widok szczegółów zadania (lub dodatkowy widok) powinien dostarczać możliwość przypisania osoby do zadania (devops lub developer). Przypisanie osoby automatycznie zmienia stan zadania z "todo" na "doing" oraz uzupełnia datę startu zadania.
+3. Widok szczegółów zadania (lub dodatkowy widok) powinien dostarczać możliwość zmiany stanu zadania na "done". Zmiana stanu automatycznie uzupełnia datę zakończenia zadania.
+4. Zrealizuj widok tablicy kanban z zadaniami (kolumny todo, doing, done) 
+5. Zadania powinny się zapisywać za pośrednictwem mechanizmu komunikacji z api
+
+Model Zadania:
+
+Nazwa
+Opis
+Priorytet (niski/średni/wysoki)
+Historyjka do której przynależy zadanie
+Przewidywany czas wykonania
+Stan (todo, doing, done). Zadanie ze stanem doing musi posiadać czas startu oraz przypisanego użytkownika. Zadanie ze stanem done posiada przypisanego użytkownika oraz datę zakończenia
+Data dodania
+Data startu (stan zmieniony na doing)
+Data zakończenia (stan zmieniony na done)
+Użytkownik odpowiedzialny za zadanie (zadanie może wykonywać devops lub developer)
+
+TODO: 
+1. użytkownicy + logowanie - 19.04
+
