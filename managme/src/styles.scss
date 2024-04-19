@@ -54,7 +54,7 @@ $managme-warn: mat.define-palette(mat.$red-palette);
 
 // Create the theme object. A theme consists of configurations for individual
 // theming systems such as "color" or "typography".
-$managme-theme: mat.define-light-theme((
+$managme-theme: mat.define-dark-theme((
   color: (
     primary: $managme-primary,
     accent: $managme-accent,
