@@ -49,7 +49,7 @@ PYTANIA:
 
 ---Projekty(największa jednostka)---
 1. Crud projektu(utwórz nowy, edytuj, usuń, zapisz)
-Model projektu: id, nazwa, opis, status(czekający na wyknoanie, aktualnie wykonywany, zamknięty)
+Model projektu: id, nazwa, opis, status(czekający na wyknoanie, aktualnie wykonywany, zamknięty) lub po prostu wybrać który projekt jest aktywny, inaczej mówiąc taki widok szczegółowy projektu. ew zostawić jak na trello i będą historyjki w środku
 
 ---Historyjki(przypisane do projektu)---
 1. Crud historyjek(utwórz nową, edytuj, usuń, zapisz)
