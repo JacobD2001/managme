@@ -30,13 +30,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## ToDo
 
-- [ ] lab 1
-- [ ] lab 2
-- [ ] lab 3
-- [ ] lab 4 - dummy data + server side endpoint - logika logowania/odświeżania tokenu(narazie logika to console.log)
+- [x] lab 1
+- [ ] lab 2 - api(do zapisywania historyjki, ale tu jest firebase), status historyjek lista filtrowana
+- [ ] lab 3 - dodać zadania pod historyjki
+- [ ] lab 4 - api(firebase zajmuje się logowaniem itd)
 - [x] lab 5
 
-1. Ogarnąć sobie firestore i zrobić poprawne modele danych żeby przejść do sekcji kanban(map-map)
+1. Dostosować modele pod projekt/story/user
+2. Zmodyfikować żeby projekty w kanbanie ustawiać w 3 statusas todo/doing/done i przesuwać tylko między 3 kolumnami
+2. Historyjki powinny mieć statusy(filtorwanie po statusie czy coś takiego dodać)
+3. dodać zadania pod historyjki(lab3)
+4. Zapytać czy zamiast api u mnie to robi firebase i czy to jest ok
+5. Projekty 
 
 
 ## My notes
