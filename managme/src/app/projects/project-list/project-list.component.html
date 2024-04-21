@@ -1,7 +1,7 @@
-<p>project-list works!</p>
 <div
 cdkDropList
 cdkDropListOrientation="horizontal"
+class="projects"
 (cdkDropListDropped)="drop($event)"
 >
 <app-project cdkDrag *ngFor="let project of projects" [project]="project">
