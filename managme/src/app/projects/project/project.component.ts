@@ -50,4 +50,12 @@ export class ProjectComponent {
       }
     });
   }
+
+  handleDelete() {
+    if (this.project.id) {
+      this.boardService.deleteProject(this.project.id);
+    } else {
+      console.error('Project id is undefined');
+    }
+  }
 }

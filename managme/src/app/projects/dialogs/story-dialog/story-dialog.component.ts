@@ -30,6 +30,10 @@ import { BoardService } from '../../board.service';
       <button mat-button [mat-dialog-close]="data" cdkFocusInitial>
         {{ data.isNew ? 'Add Story' : 'Update Story' }}
       </button>
+      <app-delete-button
+        *ngIf="!data.isNew"
+        (delete)="handleStoryDelete()"
+      ></app-delete-button>
     </div>
   `,
   styles: `.content {
@@ -54,13 +58,18 @@ textarea { display: block; width: 100%; }
 })
 export class StoryDialogComponent {
   labelOptions = ['purple', 'blue', 'green', 'yellow', 'red', 'gray'];
-  
+
   constructor(
     public dialogRef: MatDialogRef<StoryDialogComponent>,
+    private ps: BoardService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
   onNoClick(): void {
     this.dialogRef.close();
+  }
+
+  handleStoryDelete() {
+    this.ps.removeStory(this.data.projectId, this.data.story);
   }
 }
