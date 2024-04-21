@@ -3,6 +3,8 @@ import { Project } from '../project.model';
 import { BoardService } from '../board.service';
 import { Subscription } from 'rxjs';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { MatDialog } from '@angular/material/dialog';
+import { ProjectDialogComponent } from '../dialogs/project-dialog.component';
 
 @Component({
   selector: 'app-project-list',
@@ -13,7 +15,7 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   projects: Project[] = [];
   sub: Subscription = new Subscription();
 
-  constructor(public boardService: BoardService) {}
+  constructor(public boardService: BoardService, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.sub = this.boardService.getProjects().subscribe((projects) => {
@@ -28,5 +30,21 @@ export class ProjectListComponent implements OnInit, OnDestroy {
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.projects, event.previousIndex, event.currentIndex);
     this.boardService.sortProjects(this.projects);
+  }
+
+  openProjectDialog(): void {
+    const dialogRef = this.dialog.open(ProjectDialogComponent, {
+      width: '400px',
+      data: {},
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.boardService.createProject({
+          title: result,
+          priority: this.projects.length,
+        });
+      }
+    });
   }
 }

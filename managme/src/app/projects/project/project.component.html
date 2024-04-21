@@ -20,8 +20,14 @@
         class="inner-card"
         cdkDrag
         *ngFor="let story of project.stories; let i = index"
+        (click)="openDialog(story, i)"
       >
         <mat-card [ngClass]="story.label"> {{ story.description }} </mat-card>
       </div>
+
+      <button mat-stroked-button (click)="openDialog()">Add</button>
+
+
+
     </div>
   </mat-card>

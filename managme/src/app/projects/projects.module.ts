@@ -9,11 +9,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { ProjectListComponent } from './project-list/project-list.component';
 import { ProjectComponent } from './project/project.component';
+import { ProjectDialogComponent } from './dialogs/project-dialog.component';
+import { StoryDialogComponent } from './dialogs/story-dialog/story-dialog.component';
 
 @NgModule({
   declarations: [
     ProjectListComponent,
-    ProjectComponent
+    ProjectComponent,
+    ProjectDialogComponent,
+    StoryDialogComponent
   ],
   imports: [
     CommonModule,
@@ -24,5 +28,6 @@ import { ProjectComponent } from './project/project.component';
     MatDialogModule,
     MatButtonToggleModule,
   ],
+  //entrycomponents?
 })
 export class ProjectsModule {}
