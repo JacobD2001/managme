@@ -22,7 +22,7 @@ export interface Project {
     id?: string;
     title?: string;
     priority?: number;
-    tasks?: Story[];
+    stories?: Story[];
   }
 
 export interface Story {

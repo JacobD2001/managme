@@ -1,0 +1,21 @@
+<p>project-list works!</p>
+<div
+cdkDropList
+cdkDropListOrientation="horizontal"
+(cdkDropListDropped)="drop($event)"
+>
+<app-project cdkDrag *ngFor="let project of projects" [project]="project">
+    <mat-icon cdkDragHandle class="handle">drag_indicator</mat-icon>
+</app-project>
+
+<div class="project-button">
+    <button
+      mat-raised-button
+      color="accent"
+      cdkDragDisabled
+    >
+      New Project
+    </button>
+  </div>
+
+</div>

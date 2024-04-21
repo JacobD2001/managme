@@ -7,9 +7,14 @@ import { FormsModule } from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { ProjectListComponent } from './project-list/project-list.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    ProjectListComponent,
+    ProjectComponent
+  ],
   imports: [
     CommonModule,
     ProjectsRoutingModule,
