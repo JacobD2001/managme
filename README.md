@@ -36,6 +36,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - [ ] lab 4 - dummy data + server side endpoint - logika logowania/odświeżania tokenu(narazie logika to console.log)
 - [x] lab 5
 
+1. Ogarnąć sobie firestore i zrobić poprawne modele danych żeby przejść do sekcji kanban(map-map)
+
 
 ## My notes
 
@@ -76,6 +78,4 @@ Data startu (stan zmieniony na doing)
 Data zakończenia (stan zmieniony na done)
 Użytkownik odpowiedzialny za zadanie (zadanie może wykonywać devops lub developer)
 
-TODO: 
-1. użytkownicy + logowanie - 19.04
 
