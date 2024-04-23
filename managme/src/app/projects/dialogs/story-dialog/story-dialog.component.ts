@@ -19,10 +19,12 @@ import { BoardService } from '../../board.service';
         #group="matButtonToggleGroup"
         [(ngModel)]="data.story.label"
       >
-        <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt">
-          <mat-icon [ngClass]="opt">{{
-            opt === 'gray' ? 'check_circle' : 'lens'
+        <mat-button-toggle *ngFor="let opt of labelOptions" [value]="opt.color">
+          <mat-icon [ngClass]="opt.color">{{
+            opt.color === 'yellow' ? 'check_circle' : 'lens'
           }}</mat-icon>
+          {{ opt.status }}
+          <!-- Add this line to display the status text -->
         </mat-button-toggle>
       </mat-button-toggle-group>
     </div>
@@ -49,16 +51,16 @@ mat-form-field {
 
 textarea { display: block; width: 100%; }
 
-.blue { color: #71deff; }
 .green { color: #36e9b6; }
 .yellow { color: #ffcf44; }
-.purple { color: #b15cff; }
-.gray { color: gray; }
-.red { color: #e74a4a; }`,
+.grey { color: #505451; }`,
 })
 export class StoryDialogComponent {
-  labelOptions = ['purple', 'blue', 'green', 'yellow', 'red', 'gray'];
-
+  labelOptions = [
+    { color: 'grey', status: 'Todo' },
+    { color: 'yellow', status: 'Doing' },
+    { color: 'green', status: 'Done' },
+  ];
   constructor(
     public dialogRef: MatDialogRef<StoryDialogComponent>,
     private ps: BoardService,

@@ -32,6 +32,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - [x] lab 1
 - [ ] lab 2 - api(do zapisywania historyjki, ale tu jest firebase), status historyjek lista filtrowana
+           - dostosować modele pod apke
+           - labele mają 3 kolore todo/doing/done
+           - dodać filtrowanie z ikonką filtrowania
 - [ ] lab 3 - dodać zadania pod historyjki
 - [ ] lab 4 - api(firebase zajmuje się logowaniem itd)
 - [x] lab 5
