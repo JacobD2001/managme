@@ -7,6 +7,12 @@
 //     stories?: Story[];
 // }
 
+// export interface Story {
+//     description?: string;
+//     label?: 'purple' | 'blue' | 'green' | 'yellow' | 'red' | 'gray';
+// }
+
+
 export interface Story {
   id?: string;
   title?: string;
@@ -14,7 +20,7 @@ export interface Story {
   description?: string;
   priority?: 'low' | 'medium' | 'high';
   creationDate?: Date;
-  status?: 'todo' | 'inProgress' | 'done';
+  status?: 'todo' | 'doing' | 'done';
   owner?: string;
 }
 
@@ -25,7 +31,3 @@ export interface Project {
   stories?: Story[];
 }
 
-// export interface Story {
-//     description?: string;
-//     label?: 'purple' | 'blue' | 'green' | 'yellow' | 'red' | 'gray';
-// }

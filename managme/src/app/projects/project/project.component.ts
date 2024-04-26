@@ -22,6 +22,8 @@ export class ProjectComponent {
     }
   }
 
+  
+
   openDialog(story?: Story, idx?: number): void {
     const newStory = { label: 'yellow' };
     const dialogRef = this.dialog.open(StoryDialogComponent, {
