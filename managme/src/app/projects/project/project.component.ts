@@ -8,44 +8,55 @@ import { StoryDialogComponent } from '../dialogs/story-dialog/story-dialog.compo
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrl: './project.component.scss'
+  styleUrl: './project.component.scss',
 })
 export class ProjectComponent {
   @Input() project!: Project;
+  filterStatus: string = '';
+
+  get filteredStories(): Story[] {
+    return this.filterStatus
+      ? (this.project.stories || []).filter(
+          (story) => story.status === this.filterStatus
+        )
+      : this.project.stories || [];
+  }
 
   constructor(private boardService: BoardService, private dialog: MatDialog) {}
 
   taskDrop(event: CdkDragDrop<string[]>) {
     if (this.project.stories && this.project.id) {
-      moveItemInArray(this.project.stories, event.previousIndex, event.currentIndex);
+      moveItemInArray(
+        this.project.stories,
+        event.previousIndex,
+        event.currentIndex
+      );
       this.boardService.updateStory(this.project.id, this.project.stories);
     }
   }
 
-  
-
   openDialog(story?: Story, idx?: number): void {
-    const newStory = { label: 'yellow' };
+    const newStory = { label: 'grey', status: 'todo' };
     const dialogRef = this.dialog.open(StoryDialogComponent, {
       width: '500px',
       data: story
         ? { story: { ...story }, isNew: false, projectId: this.project.id, idx }
-        : { story: newStory, isNew: true }
+        : { story: newStory, isNew: true },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        if (this.project.id && this.project.stories) { 
+        if (this.project.id && this.project.stories) {
           if (result.isNew) {
             this.boardService.updateStory(this.project.id, [
               ...this.project.stories,
-              result.story
+              result.story,
             ]);
           } else {
             const update = this.project.stories;
-            if (typeof result.idx === 'number' && update) { 
+            if (typeof result.idx === 'number' && update) {
               update.splice(result.idx, 1, result.story);
-              this.boardService.updateStory(this.project.id, update); 
+              this.boardService.updateStory(this.project.id, update);
             }
           }
         }

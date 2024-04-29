@@ -1,5 +1,14 @@
 <mat-card class="outer-card">
     <mat-card-header>
+        <mat-form-field appearance="fill">
+          <mat-label>Filter by Status</mat-label>
+          <mat-select [(value)]="filterStatus">
+            <mat-option value="">All</mat-option>
+            <mat-option value="todo">Todo</mat-option>
+            <mat-option value="doing">Doing</mat-option>
+            <mat-option value="done">Done</mat-option>
+          </mat-select>
+        </mat-form-field>
       <!-- Slot for the handle -->
       <ng-content></ng-content>
       <mat-card-title>
@@ -19,7 +28,7 @@
       <div
         class="inner-card"
         cdkDrag
-        *ngFor="let story of project.stories; let i = index"
+        *ngFor="let story of filteredStories; let i = index"
         (click)="openDialog(story, i)"
       >
         <mat-card [ngClass]="story.label"> {{ story.description }} </mat-card>

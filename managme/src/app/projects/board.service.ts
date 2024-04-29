@@ -27,7 +27,7 @@ export class BoardService {
     return this.db.collection('projects').add({
       ...data,
       uid: user?.uid,
-      stories: [{ description: 'Hello!', label: 'yellow' }],
+      stories: [{ description: 'It`s welcome todo story!', label: 'grey', status: 'todo'}],
     });
   }
 
