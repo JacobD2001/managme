@@ -31,18 +31,15 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## ToDo
 
 - [x] lab 1
-- [ ] lab 2 - api(do zapisywania historyjki, ale tu jest firebase)
-           - dodać filtrowanie z ikonką filtrowania
+- [x] lab 2 - api(do zapisywania historyjki, ale tu jest firebase)
 - [ ] lab 3 - dodać zadania pod historyjki
 - [x] lab 4 - api(firebase zajmuje się logowaniem itd)
 - [x] lab 5
+- [x] lab 6
 
-1. Dostosować modele pod projekt/story/user
-2. Zmodyfikować żeby projekty w kanbanie ustawiać w 3 statusas todo/doing/done i przesuwać tylko między 3 kolumnami
-2. Historyjki powinny mieć statusy(filtorwanie po statusie czy coś takiego dodać)
-3. dodać zadania pod historyjki(lab3)
-4. Zapytać czy zamiast api u mnie to robi firebase i czy to jest ok
-5. Projekty 
+## Żeby było git zrobione:
+1. Przepisać ten kod na clean code z nowym angularem
+2. Dostosować Cssy historyjek
 
 
 ## My notes
