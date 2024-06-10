@@ -6,6 +6,10 @@ import { BoardService } from '../../board.service';
   selector: 'app-story-dialog',
   template: `
     <h1 mat-dialog-title>{{ data.isNew ? 'Add New Story' : 'Edit Story' }}</h1>
+    <button mat-button>
+        <mat-icon>menu</mat-icon>
+        See Tasks For This Story
+      </button>
     <div mat-dialog-content class="content">
       <mat-form-field>
         <textarea
@@ -17,13 +21,13 @@ import { BoardService } from '../../board.service';
       <br />
       <!-- Conditionally disable status dropdown -->
       <mat-form-field>
-          <mat-label>Status</mat-label>
-          <mat-select [(ngModel)]="data.story.status" [disabled]="data.isNew">
-            <mat-option *ngIf="data.isNew" value="todo">Todo</mat-option>
-            <mat-option *ngIf="!data.isNew" value="todo">Todo</mat-option>
-            <mat-option *ngIf="!data.isNew" value="doing">Doing</mat-option>
-            <mat-option *ngIf="!data.isNew" value="done">Done</mat-option>
-          </mat-select>
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="data.story.status" [disabled]="data.isNew">
+          <mat-option *ngIf="data.isNew" value="todo">Todo</mat-option>
+          <mat-option *ngIf="!data.isNew" value="todo">Todo</mat-option>
+          <mat-option *ngIf="!data.isNew" value="doing">Doing</mat-option>
+          <mat-option *ngIf="!data.isNew" value="done">Done</mat-option>
+        </mat-select>
       </mat-form-field>
       <br />
       <mat-button-toggle-group
