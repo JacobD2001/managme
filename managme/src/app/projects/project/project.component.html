@@ -1,44 +1,44 @@
 <mat-card class="outer-card">
-    <mat-card-header>
-        <mat-form-field appearance="fill">
-          <mat-label>Filter by Status</mat-label>
-          <mat-select [(value)]="filterStatus">
-            <mat-option value="">All</mat-option>
-            <mat-option value="todo">Todo</mat-option>
-            <mat-option value="doing">Doing</mat-option>
-            <mat-option value="done">Done</mat-option>
-          </mat-select>
-        </mat-form-field>
-      <!-- Slot for the handle -->
-      <ng-content></ng-content>
-      <mat-card-title>
-        {{ project.title }}
-      </mat-card-title>
-      <mat-card-subtitle>
+  <mat-card-header>
+    <!-- Slot for the handle -->
+    <ng-content></ng-content>
+    <mat-card-title>
+      {{ project.title }}
+    </mat-card-title>
+    <!-- <mat-card-subtitle>
         {{ project.id }}
-      </mat-card-subtitle>
-    </mat-card-header>
-  
+      </mat-card-subtitle> -->
+  </mat-card-header>
+
+<br>
+
+  <mat-form-field>
+    <mat-label>Filter by Status</mat-label>
+    <mat-select [(value)]="filterStatus">
+      <mat-option value="">All</mat-option>
+      <mat-option value="todo">Todo</mat-option>
+      <mat-option value="doing">Doing</mat-option>
+      <mat-option value="done">Done</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div
+    class="stories"
+    cdkDropList
+    cdkDropListOrientation="vertical"
+    (cdkDropListDropped)="taskDrop($event)"
+  >
     <div
-      class="stories"
-      cdkDropList
-      cdkDropListOrientation="vertical"
-      (cdkDropListDropped)="taskDrop($event)"
+      class="inner-card"
+      cdkDrag
+      *ngFor="let story of filteredStories; let i = index"
+      (click)="openDialog(story, i)"
     >
-      <div
-        class="inner-card"
-        cdkDrag
-        *ngFor="let story of filteredStories; let i = index"
-        (click)="openDialog(story, i)"
-      >
-        <mat-card [ngClass]="story.label"> {{ story.description }} </mat-card>
-      </div>
-
-      <button mat-stroked-button (click)="openDialog()">Add</button>
-
-      <app-delete-button (delete)="handleDelete()"></app-delete-button>
-
-
-
+      <mat-card [ngClass]="story.label"> {{ story.description }} </mat-card>
     </div>
-  </mat-card>
+
+    <button mat-stroked-button (click)="openDialog()">Add</button>
+
+    <app-delete-button (delete)="handleDelete()"></app-delete-button>
+  </div>
+</mat-card>
