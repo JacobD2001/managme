@@ -16,6 +16,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ShellComponent } from './shell/shell.component';
 import { DeleteButtonComponent } from './delete-button/delete-button.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const components = [ShellComponent, DeleteButtonComponent];
 
@@ -36,6 +37,10 @@ const modules = [
   RouterModule,
   MatSelectModule,
   MatFormFieldModule,
+  MatListModule,
+  MatExpansionModule,
+  MatButtonModule,
+  MatIconModule,
 ];
 
 @NgModule({

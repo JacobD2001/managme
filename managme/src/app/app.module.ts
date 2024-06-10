@@ -30,7 +30,7 @@ import { TasksComponent } from './tasks/tasks.component';
     SharedModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
   ],
   providers: [
     provideClientHydration(),

@@ -1,1 +1,41 @@
-<p>tasks works!</p>
+<h1>Please choose the project and the story you want to assign task to</h1>
+
+<div *ngIf="projects && projects.length > 0; else noProjects">
+  <mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let project of projects; let i = index">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{ i + 1 }}. Project name: {{ project.title }}
+        </mat-panel-title>
+        <mat-panel-description>
+          Project stories: {{ project?.stories?.length }}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-accordion multi="true">
+        <mat-expansion-panel *ngFor="let story of project.stories; let j = index">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{ j + 1 }}. Story name: {{ story.description }}
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+
+          <!-- Mock tasks displayed here -->
+          <!-- Change numeration of tasks, add tasks from the backend -->
+          <mat-list>
+            <mat-list-item>{{ j + 1}}. Task Name: Task 1 for Story {{ j + 1 }}</mat-list-item>
+            <mat-list-item>{{ j + 2}}. Task Name: Task 2 for Story {{ j + 1 }}</mat-list-item>
+          </mat-list>
+
+          <button mat-icon-button (click)="onStoryClick()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+
+<ng-template #noProjects>
+  <p>No projects to display. In order to view the tasks, please create a project first.</p>
+</ng-template>
