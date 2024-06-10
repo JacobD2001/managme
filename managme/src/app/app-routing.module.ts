@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AuthGuard } from './user/auth.guard';
+import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -15,6 +16,10 @@ const routes: Routes = [
       import('./projects/projects.module').then((m) => m.ProjectsModule),
     canActivate: [AuthGuard],
   },
+  {
+    path: 'tasks', component: TasksComponent,
+    canActivate: [AuthGuard],
+  }
 ];
 
 @NgModule({

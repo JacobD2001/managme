@@ -6,10 +6,6 @@ import { BoardService } from '../../board.service';
   selector: 'app-story-dialog',
   template: `
     <h1 mat-dialog-title>{{ data.isNew ? 'Add New Story' : 'Edit Story' }}</h1>
-    <button mat-button>
-        <mat-icon>menu</mat-icon>
-        See Tasks For This Story
-      </button>
     <div mat-dialog-content class="content">
       <mat-form-field>
         <textarea
