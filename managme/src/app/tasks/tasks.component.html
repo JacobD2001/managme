@@ -21,13 +21,11 @@
           </mat-expansion-panel-header>
 
           <!-- Mock tasks displayed here -->
-          <!-- Change numeration of tasks, add tasks from the backend -->
-          <mat-list>
-            <mat-list-item>{{ j + 1}}. Task Name: Task 1 for Story {{ j + 1 }}</mat-list-item>
-            <mat-list-item>{{ j + 2}}. Task Name: Task 2 for Story {{ j + 1 }}</mat-list-item>
+          <mat-list *ngFor="let task of story.tasks; let k = index">
+            <mat-list-item>{{ k + 1}}. Task Name: {{ task.title }}</mat-list-item>
           </mat-list>
 
-          <button mat-icon-button (click)="onStoryClick()">
+          <button mat-icon-button (click)="openTaskDialog()">
             <mat-icon>add</mat-icon>
           </button>
         </mat-expansion-panel>

@@ -15,13 +15,15 @@ import { SharedModule } from './shared/shared.module';
 import { HomePageComponent } from './home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TasksComponent } from './tasks/tasks.component';
+import { TaskDialogComponent } from './tasks/dialogs/task-dialog/task-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    TasksComponent
+    TasksComponent,
+    TaskDialogComponent
   ],
   imports: [
     BrowserModule,
