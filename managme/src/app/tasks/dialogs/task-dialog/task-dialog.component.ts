@@ -19,5 +19,12 @@ onNoClick(): void {
 }
 
 //handle deletion
+handleTaskDelete() {
+  console.log(this.data);
+  //this.ps.removeStory(this.data.projectId, this.data.story);
+}
+
+
+//add template for task dialog
 
 }

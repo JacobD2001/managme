@@ -37,4 +37,8 @@ export class TasksComponent implements OnInit, OnDestroy {
         : { task: newTask, isNew: true },
     });
   }
+  
+  //dialogref.afterclosed().subscribe((result) => {
+
+  //handle delete
 }
